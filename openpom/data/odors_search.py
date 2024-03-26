@@ -1,4 +1,4 @@
-def choose_odor():
+def choose_odor(descriptors):
     print("Choose one or more of the odours you want to replace from the following options:")
     for i, value in enumerate(descriptors, start=1):
         print(f"{i}. {value}")
