@@ -1,3 +1,6 @@
+import re
+import pandas as pd
+
 def choose_odor(descriptors):
     print("Choose one or more of the odours you want to replace from the following options:")
     for i, value in enumerate(descriptors, start=1):
