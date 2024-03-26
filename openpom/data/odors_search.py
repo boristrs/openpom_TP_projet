@@ -1,3 +1,28 @@
+def choose_odor():
+    print("Choose one or more of the odours you want to replace from the following options:")
+    for i, value in enumerate(descriptors, start=1):
+        print(f"{i}. {value}")
+
+    while True :
+      try:
+        user_choice = input("Enter the numbers of the chosen scents, separated by commas (e.g. 1, 3): ")
+        chosen_numbers = [int(number.strip()) for number in user_choice.split(',')]
+
+        if all(1 <= number <= len(descriptors) for number in chosen_numbers):
+          break
+        else:
+          print("Error: Please enter valid numbers within the range of available options.")
+      except ValueError:
+        print("Error: Please enter valid numbers within the range of available options.")
+
+    chosen_values = [descriptors[number - 1] for number in chosen_numbers]
+
+    print("You've chosen the following scents:")
+    for value in chosen_values:
+        print(value)
+
+    return chosen_values
+
 # Search for molecules containing exclusively these descriptors
 def check_descriptor(row, target_list):
     descriptors = re.findall(r'([a-zA-Z]+)\s:', row)
