@@ -31,7 +31,7 @@ def check_descriptor(row, target_list):
     descriptors = re.findall(r'([a-zA-Z]+)\s:', row)
     return set(descriptors) == set(target_list)
   
-def only_odors(odors_description):
+def only_odors(odors_description, df_descr):
   # Create a Boolean series initially True for all lines
     all_present = pd.Series(True, index=df_descr.index)
 
@@ -53,7 +53,7 @@ def only_odors(odors_description):
     return first_filter
 
 #Search for molecules containing these descriptors and more
-def at_least_odors(odors_description):
+def at_least_odors(odors_description, df_descr):
   # Create a Boolean series initially True for all lines
     all_present = pd.Series(True, index=df_descr.index)
 
@@ -72,7 +72,7 @@ def at_least_odors(odors_description):
     return second_filter
 
 #Search for molecules containing at least one of the descriptors
-def at_least_one_odor(odors_description):
+def at_least_one_odor(odors_description, df_descr):
   # Create a Boolean series initially True for all lines
     at_least_one = pd.Series(False, index=df_descr.index)
 
